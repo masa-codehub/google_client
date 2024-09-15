@@ -1,0 +1,8 @@
+# high priority
+google-api-python-client
+
+# middle priority
+pydantic
+numpy
+
+# low priority

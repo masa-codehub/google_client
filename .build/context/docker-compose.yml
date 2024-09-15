@@ -1,0 +1,15 @@
+services:
+  service_name:
+    build:
+      context: ./${GOOGLE_CLIENT}/.build
+      dockerfile: Dockerfile
+    image: ${GOOGLE_CLIENT}_image
+    volumes:
+      - ./${GOOGLE_CLIENT}:${CONTAINER_VOLUME}
+    working_dir: ${CONTAINER_VOLUME}
+    environment:
+      - SEARCH_ENGINE_ID=${SEARCH_ENGINE_ID:-"search_engine_id"}
+      - CUSTOM_SEARCH_API_KEY=${CUSTOM_SEARCH_API_KEY:-"custom_search_api_key"}
+    # command: ["bash", "run.sh"]
+    stdin_open: true
+    tty: true
